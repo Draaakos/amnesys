@@ -391,7 +391,7 @@ function changePage()
 
                 
 
-  <div id="PremiumBox" class="Themebox" style="background-image:url({$template_path}/images/themeboxes/premium/premiumbox.gif);">
+  <div id="PremiumBox" class="Themebox" style="background-image:url({$template_path}/images/themeboxes/premium/premiumbox.gif);position:absolute;right:0;margin-right:-190px;top:0">
 
     <a class="ThemeboxButton" href="{$path}/index.php/p/v/premiumfeatures" onMouseOver="MouseOverBigButton(this);" onMouseOut="MouseOutBigButton(this);" style="background-image:url({$template_path}/images/buttons/sbutton.gif);"><div class="BigButtonOver" style="background-image:url({$template_path}/images/buttons/sbutton_over.gif);"></div>
 
@@ -405,7 +405,7 @@ function changePage()
 
 
 
-    <div id="ScreenshotBox" class="Themebox" style="background-image:url({$template_path}/images/themeboxes/screenshot/screenshotbox.gif);">
+    <div id="ScreenshotBox" class="Themebox" style="background-image:url({$template_path}/images/themeboxes/screenshot/screenshotbox.gif);position:absolute;right:0;margin-right:-190px;top:190px">
 
       <a href="{$path}/index.php/p/v/gallery" >
 

@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.0rc1, created on 2019-01-29 12:11:07
+<?php /* Smarty version 3.0rc1, created on 2019-01-29 20:32:52
          compiled from "templates/tibiacom\index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:172255c5042dbbcb9b9-25323169%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:60645c50b8742aab08-83551335%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5c7701485866933c997cda8ba452c0f8ace7e105' => 
     array (
       0 => 'templates/tibiacom\\index.tpl',
-      1 => 1304146493,
+      1 => 1548793971,
     ),
   ),
-  'nocache_hash' => '172255c5042dbbcb9b9-25323169',
+  'nocache_hash' => '60645c50b8742aab08-83551335',
   'function' => 
   array (
   ),
@@ -563,7 +563,7 @@ if (count($_from) > 0){
                 
 
   <div id="PremiumBox" class="Themebox" style="background-image:url(<?php echo $_smarty_tpl->getVariable('template_path')->value;?>
-/images/themeboxes/premium/premiumbox.gif);">
+/images/themeboxes/premium/premiumbox.gif);position:absolute;right:0;margin-right:-190px;top:0">
 
     <a class="ThemeboxButton" href="<?php echo $_smarty_tpl->getVariable('path')->value;?>
 /index.php/p/v/premiumfeatures" onMouseOver="MouseOverBigButton(this);" onMouseOut="MouseOutBigButton(this);" style="background-image:url(<?php echo $_smarty_tpl->getVariable('template_path')->value;?>
@@ -583,7 +583,7 @@ if (count($_from) > 0){
 
 
     <div id="ScreenshotBox" class="Themebox" style="background-image:url(<?php echo $_smarty_tpl->getVariable('template_path')->value;?>
-/images/themeboxes/screenshot/screenshotbox.gif);">
+/images/themeboxes/screenshot/screenshotbox.gif);position:absolute;right:0;margin-right:-190px;top:190">
 
       <a href="<?php echo $_smarty_tpl->getVariable('path')->value;?>
 /index.php/p/v/gallery" >

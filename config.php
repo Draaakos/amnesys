@@ -80,7 +80,7 @@ $config['newsLimit'] = 10;
 $config['commentLimit'] = 10;
 
 /*Template that should be used on website*/
-$config['layout'] = "default";
+$config['layout'] = "tibiacom";
 
 /*Title of a website*/
 $config['title'] = "Amnesys Ots";
