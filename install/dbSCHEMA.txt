@@ -1,0 +1,107 @@
+ALTER TABLE `accounts` ADD `page_access` int(11);
+ALTER TABLE `accounts` ADD `page_lastday` int(11);
+ALTER TABLE `accounts` ADD `email_new` varchar(255);
+ALTER TABLE `accounts` ADD `email_new_time` int(15);
+ALTER TABLE `accounts` ADD `rlname` varchar(255);
+ALTER TABLE `accounts` ADD `location` varchar(255);
+ALTER TABLE `accounts` ADD `created` int(16);
+ALTER TABLE `accounts` ADD `email_code` varchar(255);
+ALTER TABLE `accounts` ADD `next_email` int(11);
+ALTER TABLE `accounts` ADD `premium_points` int(11);
+ALTER TABLE `players` ADD `old_name` varchar(255);
+ALTER TABLE `players` ADD `hide_char` int(11);
+ALTER TABLE `players` ADD `worldtransfer` int(11);
+ALTER TABLE `players` ADD `created` int(16);
+ALTER TABLE `players` ADD `nick_verify` int(11);
+ALTER TABLE `players` ADD `comment` text;
+
+CREATE TABLE IF NOT EXISTS `news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) NOT NULL DEFAULT '',
+  `body` text NOT NULL,
+  `time` int(18) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `news_id` int(11) DEFAULT NULL,
+  `body` text NOT NULL,
+  `time` int(18) NOT NULL DEFAULT '0',
+  `author` varchar(64) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+CREATE TABLE IF NOT EXISTS `forums` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  `description` text NOT NULL,
+  `access` int(5) unsigned NOT NULL,
+  `closed` int(1) unsigned NOT NULL COMMENT 'Min. access to see the board',
+  `moderators` text NOT NULL,
+  `order` int(6) DEFAULT NULL,
+  `requireLogin` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) NOT NULL,
+  `text` text NOT NULL,
+  `time` int(16) unsigned NOT NULL,
+  `author` varchar(64) NOT NULL,
+  `board_id` int(16) unsigned NOT NULL,
+  `thread_id` int(16) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `threads` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  `sticked` tinyint(1) unsigned NOT NULL,
+  `closed` tinyint(1) unsigned NOT NULL,
+  `author` varchar(64) NOT NULL,
+  `time` int(12) unsigned NOT NULL,
+  `board_id` int(12) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `bugtracker` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category` int(3) unsigned NOT NULL,
+  `time` int(16) unsigned NOT NULL,
+  `author` int(16) unsigned NOT NULL,
+  `text` text NOT NULL,
+  `title` varchar(64) NOT NULL,
+  `done` int(3) unsigned NOT NULL,
+  `priority` int(3) unsigned NOT NULL,
+  `closed` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `videos` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `author` int(12) unsigned NOT NULL,
+  `title` varchar(64) NOT NULL,
+  `description` text NOT NULL,
+  `youtube` varchar(45) NOT NULL,
+  `views` int(12) unsigned NOT NULL,
+  `time` int(16) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+CREATE TABLE IF NOT EXISTS `video_comments` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `author` int(12) unsigned NOT NULL,
+  `video` int(12) unsigned NOT NULL,
+  `time` int(16) unsigned NOT NULL,
+  `text` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+
+INSERT INTO `players` (`id`, `name`, `world_id`, `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `maglevel`, `mana`, `manamax`, `manaspent`, `soul`, `town_id`, `posx`, `posy`, `posz`, `conditions`, `cap`, `sex`, `lastlogin`, `lastip`, `save`, `skull`, `skulltime`, `rank_id`, `guildnick`, `lastlogout`, `blessings`, `balance`, `stamina`, `direction`, `loss_experience`, `loss_mana`, `loss_skills`, `loss_containers`, `loss_items`, `premend`, `online`, `marriage`, `promotion`, `deleted`, `description`, `created`, `nick_verify`, `old_name`, `hide_char`, `worldtransfer`, `comment`) VALUES
+(15, 'Rook Sample', 0, 1, 1, 1, 0, 150, 150, 0, 0, 0, 0, 0, 110, 0, 0, 0, 0, 0, 0, 0, 50, 50, 7, '', 400, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 201660000, 0, 100, 100, 100, 100, 100, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, 'This player has no comment at this moment.'),
+(16, 'Sorcerer Sample', 0, 1, 1, 8, 1, 185, 185, 4200, 0, 0, 0, 0, 110, 0, 0, 35, 0, 0, 0, 1, 50, 50, 7, '', 440, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 201660000, 0, 100, 100, 100, 100, 100, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, 'This player has no comment at this moment.'),
+(17, 'Druid Sample', 0, 1, 1, 8, 2, 185, 185, 4200, 0, 0, 0, 0, 110, 0, 0, 35, 0, 0, 0, 1, 50, 50, 7, '', 440, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 201660000, 0, 100, 100, 100, 100, 100, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, 'This player has no comment at this moment.'),
+(18, 'Paladin Sample', 0, 1, 1, 8, 3, 185, 185, 4200, 0, 0, 0, 0, 110, 0, 0, 35, 0, 0, 0, 1, 50, 50, 7, '', 440, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 201660000, 0, 100, 100, 100, 100, 100, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, 'This player has no comment at this moment.'),
+(19, 'Knight Sample', 0, 1, 1, 8, 4, 185, 185, 4200, 0, 0, 0, 0, 110, 0, 0, 35, 0, 0, 0, 1, 50, 50, 7, '', 440, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 201660000, 0, 100, 100, 100, 100, 100, 0, 0, 0, 0, 0, '', 0, 0, '', 0, 0, 'This player has no comment at this moment.');
